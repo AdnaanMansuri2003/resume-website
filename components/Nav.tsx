@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Logo from "@/components/Logo";
 import { navLinks, profile } from "@/lib/data";
 
 /** Both files are offered, so each label has to say plainly what you get. */
@@ -90,14 +91,15 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
+        {/* The name is hidden on small screens, so the link carries its own
+            label rather than relying on the decorative mark. */}
         <a
           href="#top"
+          aria-label={`${profile.name} — back to top`}
           className="group flex items-center gap-2.5"
           onClick={() => setOpen(false)}
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--border-strong)] bg-[var(--surface)] font-mono text-[13px] font-semibold text-accent-400 transition-colors group-hover:border-accent-500/60">
-            AM
-          </span>
+          <Logo className="h-9 w-9 text-accent-400 transition-colors group-hover:text-accent-300" />
           <span className="hidden text-sm font-semibold tracking-tight text-white sm:block">
             {profile.name}
           </span>
@@ -201,9 +203,11 @@ export default function Nav() {
         </button>
       </nav>
 
+      {/* max-height drives the collapse, so the open value has to clear the
+          tallest the panel gets: every nav link plus both résumé cards. */}
       <div
         className={`overflow-hidden border-t border-[var(--border)] bg-[rgba(5,7,13,0.96)] backdrop-blur-xl transition-[max-height] duration-300 md:hidden ${
-          open ? "max-h-96" : "max-h-0 border-t-transparent"
+          open ? "max-h-136" : "max-h-0 border-t-transparent"
         }`}
       >
         <div className="space-y-1 px-5 py-4">

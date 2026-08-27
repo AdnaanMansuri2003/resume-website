@@ -21,6 +21,24 @@ export const profile = {
   phoneHref: "+14374308083",
   resumeFile: "/Mohammad-Adnaan-Mansuri-Resume.pdf",
   resumeShortFile: "/Mohammad-Adnaan-Mansuri-Resume-Onepage.pdf",
+  /**
+   * Full-frame hero portrait, shown from lg up. 1024x1536, and a transparent
+   * cutout — whatever sits behind it shows through.
+   *
+   * Kept as the untouched PNG on purpose: next/image re-encodes on the way out,
+   * so storing an already-compressed source would compress it twice. Visitors
+   * never download this file, only the derivatives.
+   */
+  photo: "/adnaan-mansuri.png",
+  photoWidth: 1024,
+  photoHeight: 1536,
+  /**
+   * Lossless head-and-shoulders crop of the same shot, for the mobile avatar.
+   * Centred on the head with padding above it so the face sits in the middle of
+   * the circle. Also a cutout, so whatever renders it needs its own backdrop.
+   */
+  avatar: "/adnaan-mansuri-avatar.png",
+  avatarSize: 520,
   linkedin: "https://www.linkedin.com/in/mohammad-adnaan-mansuri/",
   github: "https://github.com/AdnaanMansuri2003",
 };
