@@ -1,0 +1,365 @@
+﻿/* Print-first résumé stylesheet. Rendered to PDF via Chrome --print-to-pdf,
+   and also readable on screen at /resume. */
+
+.resume-root {
+  --r-ink: #16202e;
+  --r-muted: #4a5768;
+  --r-faint: #6b7889;
+  --r-rule: #d3dae3;
+  --r-accent: #0f4c75;
+
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: #eef1f5;
+  padding: 24px 0;
+  color: var(--r-ink);
+  font-family: var(--font-inter), "Segoe UI", Arial, sans-serif;
+  font-size: 9.1pt;
+  line-height: 1.38;
+}
+
+/* Neutralise the dark site chrome behind this page. */
+body:has(.resume-root) {
+  background: #eef1f5;
+}
+
+body:has(.resume-root) .page-bg {
+  display: none;
+}
+
+.r-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 13mm 13mm 11mm;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.16);
+}
+
+/* ---------- header ---------- */
+
+.r-header {
+  padding-bottom: 9px;
+  border-bottom: 1.6px solid var(--r-accent);
+}
+
+.r-header h1 {
+  margin: 0;
+  font-size: 25pt;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  color: var(--r-ink);
+}
+
+.r-role {
+  margin: 3px 0 0;
+  font-size: 11pt;
+  font-weight: 500;
+  color: var(--r-accent);
+  letter-spacing: 0.005em;
+}
+
+.r-contact {
+  margin: 6px 0 0;
+  font-size: 9pt;
+  color: var(--r-muted);
+}
+
+.r-sep {
+  padding: 0 6px;
+  color: var(--r-rule);
+}
+
+/* Chrome's print-to-pdf carries these through as PDF link annotations, so the
+   email and phone open the reader's mail/dialler app straight from the file. */
+.r-contact-link {
+  color: var(--r-accent);
+  text-decoration: none;
+}
+
+/* ---------- two-column body ---------- */
+
+.r-body {
+  display: grid;
+  grid-template-columns: 60mm 1fr;
+  gap: 0 9mm;
+  margin-top: 11px;
+}
+
+.r-side {
+  border-right: 1px solid var(--r-rule);
+  padding-right: 8mm;
+}
+
+.r-side > section,
+.r-main > section {
+  margin-bottom: 10px;
+}
+
+/* Let a long sidebar section (Skills) split across pages, but never strand a
+   heading at the bottom of a page with its body on the next one. */
+.r-side-heading {
+  break-after: avoid;
+}
+
+/* Availability is short, so keep it in one piece. */
+.r-side-availability {
+  break-inside: avoid;
+}
+
+.r-side > section:last-child,
+.r-main > section:last-child {
+  margin-bottom: 0;
+}
+
+.r-side-heading,
+.r-main-heading {
+  margin: 0 0 7px;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--r-accent);
+}
+
+.r-main-heading {
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--r-rule);
+}
+
+.r-side-block {
+  margin-bottom: 9px;
+  break-inside: avoid;
+}
+
+.r-side-block:last-child {
+  margin-bottom: 0;
+}
+
+.r-side-block h3 {
+  margin: 0 0 1px;
+  font-size: 9.4pt;
+  font-weight: 700;
+  color: var(--r-ink);
+}
+
+.r-side-block p {
+  margin: 0;
+  font-size: 8.5pt;
+  color: var(--r-muted);
+}
+
+.r-strong {
+  font-weight: 600;
+  color: var(--r-ink);
+}
+
+.r-meta {
+  font-size: 8.5pt;
+  color: var(--r-faint);
+}
+
+/* ---------- main column entries ---------- */
+
+.r-summary {
+  margin: 0;
+  font-size: 8.9pt;
+  color: var(--r-muted);
+  text-align: justify;
+}
+
+.r-entry {
+  margin-bottom: 8px;
+  break-inside: avoid;
+}
+
+.r-entry:last-child {
+  margin-bottom: 0;
+}
+
+.r-entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.r-entry-head h3 {
+  margin: 0;
+  font-size: 9.6pt;
+  font-weight: 700;
+  color: var(--r-ink);
+}
+
+.r-entry-role {
+  font-weight: 500;
+  color: var(--r-accent);
+}
+
+.r-entry-head .r-meta {
+  white-space: nowrap;
+}
+
+.r-entry-loc {
+  margin: 1px 0 0;
+}
+
+.r-entry ul {
+  margin: 4px 0 0;
+  padding-left: 13px;
+  list-style: none;
+}
+
+.r-entry li {
+  position: relative;
+  margin-bottom: 2px;
+  font-size: 8.8pt;
+  color: var(--r-muted);
+}
+
+.r-entry li::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 5.2px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--r-accent);
+}
+
+.r-stack {
+  margin: 4px 0 0;
+  font-size: 8.6pt;
+  color: var(--r-faint);
+}
+
+.r-also-built {
+  margin: 6px 0 0;
+  font-size: 8.6pt;
+  color: var(--r-muted);
+}
+
+/* ---------- one-page variant ----------
+   Same layout, tighter density, so the short résumé lands on a single A4
+   sheet without looking like a different document. */
+
+.r-compact {
+  font-size: 8.7pt;
+  line-height: 1.34;
+}
+
+.r-compact .r-header h1 {
+  font-size: 22pt;
+}
+
+.r-compact .r-role {
+  font-size: 10pt;
+}
+
+.r-compact .r-header {
+  padding-bottom: 7px;
+}
+
+.r-compact .r-body {
+  margin-top: 9px;
+}
+
+.r-compact .r-side > section,
+.r-compact .r-main > section {
+  margin-bottom: 8px;
+}
+
+.r-compact .r-side-heading,
+.r-compact .r-main-heading {
+  margin-bottom: 5px;
+  font-size: 8.4pt;
+}
+
+.r-compact .r-side-block {
+  margin-bottom: 6px;
+}
+
+.r-compact .r-side-block h3 {
+  font-size: 8.8pt;
+}
+
+.r-compact .r-side-block p,
+.r-compact .r-meta {
+  font-size: 8pt;
+}
+
+.r-compact .r-summary {
+  font-size: 8.4pt;
+}
+
+.r-compact .r-entry {
+  margin-bottom: 6px;
+}
+
+.r-compact .r-entry-head h3 {
+  font-size: 9.1pt;
+}
+
+.r-compact .r-entry li {
+  margin-bottom: 1.5px;
+  font-size: 8.4pt;
+}
+
+.r-compact .r-entry li::before {
+  top: 4.6px;
+}
+
+.r-compact .r-stack,
+.r-compact .r-also-built {
+  margin-top: 3px;
+  font-size: 8pt;
+}
+
+.resume-root a {
+  color: var(--r-accent);
+  text-decoration: none;
+}
+
+.resume-root a + a::before {
+  content: " · ";
+  color: var(--r-faint);
+}
+
+/* ---------- print ---------- */
+
+/* Page margins live here rather than on .r-sheet so that every page gets the
+   same top/bottom breathing room — element padding only applies to the first
+   and last fragment, which left page 2 starting flush against the paper edge. */
+@page {
+  size: A4;
+  margin: 11mm 12mm 10mm;
+}
+
+@media print {
+  /* The body background propagates to the page canvas, so it has to be
+     cleared here or the off-white screen colour fills every printed page. */
+  body:has(.resume-root) {
+    background: #fff;
+  }
+
+  .resume-root {
+    padding: 0;
+    background: #fff;
+  }
+
+  .r-sheet {
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .r-side {
+    /* Chrome cannot flow a bordered grid column across pages cleanly. */
+    border-right: 1px solid var(--r-rule);
+  }
+}
