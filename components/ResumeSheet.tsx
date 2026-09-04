@@ -136,6 +136,12 @@ export default function ResumeSheet({
               <SidebarHeading>Links</SidebarHeading>
               <div className="r-side-block">
                 <p>
+                  <span className="r-strong">Portfolio:</span>{" "}
+                  <a href={profile.portfolio}>
+                    {stripProtocol(profile.portfolio)}
+                  </a>
+                </p>
+                <p>
                   <span className="r-strong">GitHub:</span>{" "}
                   <a href={profile.github}>{stripProtocol(profile.github)}</a>
                 </p>
@@ -199,7 +205,17 @@ export default function ResumeSheet({
                     role={item.role}
                     period={item.period}
                   />
-                  <p className="r-meta r-entry-loc">{item.location}</p>
+                  <p className="r-meta r-entry-loc">
+                    {item.location}
+                    {item.link ? (
+                      <>
+                        <span className="r-sep">|</span>
+                        <a href={item.link.href}>
+                          {stripProtocol(item.link.href)}
+                        </a>
+                      </>
+                    ) : null}
+                  </p>
                   <ul>
                     {(short
                       ? (item.shortBullets ??

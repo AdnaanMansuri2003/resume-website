@@ -1,6 +1,7 @@
 import { experience, type Experience as ExperienceItem } from "@/lib/data";
 import Section from "./Section";
 import Reveal from "./Reveal";
+import { ArrowIcon } from "./Icons";
 
 function Card({ item }: { item: ExperienceItem }) {
   return (
@@ -52,6 +53,18 @@ function Card({ item }: { item: ExperienceItem }) {
           </li>
         ))}
       </ul>
+
+      {item.link ? (
+        <a
+          href={item.link.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="group mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold text-accent-300 transition-colors hover:text-accent-400"
+        >
+          {item.link.label}
+          <ArrowIcon className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+        </a>
+      ) : null}
 
       <div className="mt-6 flex flex-wrap gap-1.5">
         {item.tags.map((tag) => (

@@ -41,6 +41,7 @@ export const profile = {
   avatarSize: 520,
   linkedin: "https://www.linkedin.com/in/mohammad-adnaan-mansuri/",
   github: "https://github.com/AdnaanMansuri2003",
+  portfolio: "https://adnaan-mansuri.vercel.app/",
 };
 
 export const availability = {
@@ -87,9 +88,37 @@ export type Experience = {
   /** Tightest bullet set, used by the one-page résumé. */
   shortBullets?: string[];
   tags: string[];
+  /** Live site for the work, when there is a public one to point at. */
+  link?: { label: string; href: string };
 };
 
 export const experience: Experience[] = [
+  {
+    company: "Fixo Appliance",
+    role: "Web Developer (Contract)",
+    period: "Mid 2026",
+    location: "Remote",
+    type: "work",
+    featured: true,
+    summary:
+      "Contract web development for an appliance-service business — a customer-facing site that connects customers with repair professionals and makes service booking straightforward.",
+    bullets: [
+      "Designed and developed a customer-facing appliance-service website covering refrigerators, washing machines, dryers, microwaves, dishwashers, cooktops and TVs.",
+      "Built a responsive UI and a clear service-page structure so customers can find the right repair service and enquire in a couple of clicks.",
+      "Handled branding and produced custom visual assets to give the business a consistent, professional identity.",
+      "Wrote SEO-oriented content and structured the pages around search intent for local appliance-repair queries.",
+    ],
+    resumeBullets: [
+      "Designed and developed a customer-facing appliance-service website in Next.js and React, covering repair services across seven appliance categories.",
+      "Built a responsive UI and a clear service-page structure so customers can find the right service and enquire in a couple of clicks.",
+      "Handled branding, custom visual assets and SEO-oriented content structured around local appliance-repair search intent.",
+    ],
+    shortBullets: [
+      "Designed and developed a customer-facing appliance-service website in Next.js and React — responsive UI, clear service-page structure, branding assets and SEO content written around local repair search intent.",
+    ],
+    tags: ["Next.js", "React", "Tailwind CSS", "Responsive UI", "SEO", "Branding"],
+    link: { label: "Live site", href: "https://www.fixoappliance.com/" },
+  },
   {
     company: "Gujarat Infotech Limited",
     role: "Software Developer",
@@ -283,7 +312,8 @@ export const projects: Project[] = [
     name: "Isaji Mart",
     subtitle: "Invoice & Stock Admin Dashboard + Product Website",
     period: "May 2025 — June 2025",
-    featured: true,
+    // Not `featured`: the one-pager already covers this build in the Isaji Mart
+    // experience entry, so there it collapses into the "Also built" line.
     summary:
       "Digitised a grocery store I managed: an admin dashboard for invoicing and stock control, plus a public product-display site for customers.",
     bullets: [
@@ -293,21 +323,6 @@ export const projects: Project[] = [
       "Designed the workflows directly from the store's real operating needs, having managed the counter and stock room myself.",
     ],
     tags: ["React", "Next.js", "Node.js", "MySQL", "Tailwind CSS", "Dashboards"],
-  },
-  {
-    name: "Fixo Appliance",
-    subtitle: "Appliance Service Platform — Web Developer",
-    period: "Mid 2026",
-    summary:
-      "A professional appliance-service website connecting customers with repair professionals and making service booking straightforward.",
-    bullets: [
-      "Designed and developed a customer-facing appliance-service website covering refrigerators, washing machines, dryers, microwaves, dishwashers, cooktops and TVs.",
-      "Built a responsive UI and a clear service-page structure so customers can find the right repair service and enquire in a couple of clicks.",
-      "Handled branding and produced custom visual assets to give the business a consistent, professional identity.",
-      "Wrote SEO-oriented content and structured the pages around search intent for local appliance-repair queries.",
-    ],
-    tags: ["Next.js", "React", "Tailwind CSS", "Responsive UI", "SEO", "Branding"],
-    links: [{ label: "Live site", href: "https://www.fixoappliance.com/" }],
   },
   {
     name: "Ontario Appliance Service",

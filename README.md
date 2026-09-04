@@ -20,10 +20,10 @@ npm start        # serve the production build
 
 | Export | Controls |
 | --- | --- |
-| `profile` | Name, role, headline, summary, email, phone, location, GitHub/LinkedIn links |
+| `profile` | Name, role, headline, summary, email, phone, location, portfolio/GitHub/LinkedIn links |
 | `availability` | The green "Open to work" badge, the About sidebar card and the Contact copy |
 | `stats` | The four-number strip under the hero |
-| `experience` | Experience timeline (Gujarat Infotech, Isaji Mart store manager, internships) |
+| `experience` | Experience timeline (Fixo Appliance, Gujarat Infotech, Isaji Mart store manager, internships). Set `link` to surface a live site for the role |
 | `projects` | Project cards. Set `flagship: true` for the large hero card (currently Inventix ERP) |
 | `skills` | Skill groups and per-language proficiency badges |
 | `education` | Education entries. Set `current: true` to get the "In progress" highlight |
